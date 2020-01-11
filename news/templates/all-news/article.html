@@ -9,7 +9,9 @@
     <h1 class="text-center">{{article.title}}</h1>
   </div>
   <div class="row">
-    <p>{{article.post}}</p>
+    {% autoescape on %}
+    <p>{{article.post | safe }}</p>
+    {% endautoescape %}
   </div>
   <div class="row">
     <p>Posted {{article.pub_date|timesince}} by {{article.editor.first_name}}</p>
